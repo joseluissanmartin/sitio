@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link href="Style.css" rel="stylesheet" type="text/css"/> 
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="login.html">Ingresar</a></li>
+                    <li><a href="contact.html">Contactos</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <div class="tarjeta">
+                <header>
+                    <h3>Registrarse</h3>
+                </header>
+                <form>
+                    <div>
+                        <label>Correo</label>
+                        <input id="email" type="email" placeholder="correo@ejemplo.cl"required />
+                    </div>
+                    <div>
+                        <label>Contrase&ntilde;a</label>
+                        <input id="password" type="password" required minlength="4" maxlength="8" />
+                    </div>
+                    <div>
+                    <label>Confirmar contrase&ntilde;a</label>
+                    <input id="confirmacion" type="password" required minlength="4" maxlength="8" />
+                </div>
+                <div>
+                    <label>Navegadores Preferidos</label>
+                    <select required>
+                        <option disabled selected>Seleccione...</option>
+                        <option value="google_chrome">Goggle Chrome</option>
+                        <option value="mozilla_firefox">Mozilla Firefox</option>
+                        <option value="Safari">Safari</option>
+                        <option value= "opera">Opera</option>
+                    
+                    </select>
+                </div>
+                <div>
+                    <label>Edad</label>
+                    <input type="number" min="1" max="150" step="any" required/>
+                </div>
+                <div>
+                    <label>Descripci&oacute;n</label>
+                    <textarea rows="8">Text ejemplo</textarea>
+                </div>
+                <div>
+                    <label>Lenguaje de programac&oacute;n preferido</label>
+                    <input list ="lenguajes" required />
+                    <datalist id="lenguajes">
+                        <option disabled selected>Seleccione...</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="Pyton">Pyton</option>
+                        <option value="Safari">Java</option>
+                        <option value="opera">Swift</option>
+                        <option>C</option>
+                    </datalist>
+                </div>
+                <div>
+                    <label>Fecha de hoy</label>
+                    <output>23/04/20</output>
+                </div>
+                    <button id="registrarse"> Registrarse </button>
+                </form>
+            </div>
+        </section>
+        <footer>
+        <script type="text/javascript">
+          function getElement(id){
+              return document.getElementById(id);
+          }
+        function validarConfirmacion(evento){
+        const campoPassword=getElement('password');
+        const campoConfirmacion=getElement('confirmacion');
+
+            const password = campoPassword.value;
+            const confirmacion = campoConfirmacion.value;
+
+            if(password != confirmacion){
+                alert("Las contraseñas no coinciden");
+                campoPassword.classList.add('inputConError');
+                campoConfirmacion.classList.add('inputConError');
+                evento.preventDefault();
+        }else{
+            campoPassword.classList.remove('inputConError');
+            campoConfirmacion.classList.remove('inputConError');
+        }
+            }
+        
+
+        document.getElementById('registrarse').onclick= validarConfirmacion;
+            
+        
+        </script>
+
+        </footer>
+
+    </body>
+</html>
+
+
